@@ -258,7 +258,7 @@ const emit = defineEmits<{
   (e: 'update', payload: { editor: Editor }): void
 }>()
 
-const { tr } = useI18n()
+const { tr, setLocale } = useI18n()
 const darkModeAlt = ref(false)
 const isEditable = ref(true)
 const localeAlt = ref('en')
@@ -407,6 +407,8 @@ watch(
   () => props.locale,
   (newValue) => {
     localeAlt.value = newValue
+    setLocale(newValue)
+    editor.value?.view.dispatch(editor.value?.view.state.tr)
   }
 )
 
@@ -431,6 +433,8 @@ onBeforeMount(() => {
   aiOptionsAlt.value = props.aiOptions
   darkModeAlt.value = props.darkMode
   localeAlt.value = props.locale
+  setLocale(props.locale)
+  editor.value?.view.dispatch(editor.value?.view.state.tr)
 })
 
 defineExpose({

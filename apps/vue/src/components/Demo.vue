@@ -177,7 +177,6 @@ const darkMode = ref(false)
 const editable = ref(true)
 const source = ref('default')
 const showDrawer = ref(false)
-provide('locale', locale)
 
 // Collaboration
 const ydoc = shallowRef<Y.Doc | null>(null)
