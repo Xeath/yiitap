@@ -70,7 +70,7 @@ import { isExtensionInstalled } from '../utils'
 import {
   OPlaceholder,
   createExtensionList,
-  type AnyExtension,
+  type ExtensionsProp,
 } from '../extensions'
 import { type SideMenuAddType } from '../types/types'
 
@@ -173,7 +173,7 @@ const props = defineProps({
    * <a href="https://github.com/pileax-ai/yiitap/blob/main/packages/vue/src/extensions/index.ts" target="_blank">BuiltinExtensions</a>.
    */
   extensions: {
-    type: Array as () => AnyExtension[],
+    type: Array as () => ExtensionsProp[],
     default: () => [],
   },
   /**
